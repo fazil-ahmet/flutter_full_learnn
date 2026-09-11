@@ -21,13 +21,20 @@ class _TextFieldLearnState extends State<TextFieldLearn> {
               bool? isFocused,
               int? maxLength,
             }) {
-              return Container(
+              return _animatedConteiner(currentLength);
+
+              /*Container(
                 height: 10,
                 width: 50,
-                color: Colors.blueAccent[10 * ((currentLength ?? 0) ~/ 2)],
-              );
+                color:
+                    Colors.blueAccent[100 * ((currentLength ?? 0) ~/ 2)],
+              );*/
             },
 
+        //kelime tamlayıcı.
+        autofillHints: [AutofillHints.addressCity],
+        //klavyeyi email cinsinden oluşturur.
+        keyboardType: TextInputType.emailAddress,
         //custom compant yapmak için çok işe yarar.
         decoration: InputDecoration(
           prefixIcon: Icon(Icons.mail),
@@ -36,6 +43,16 @@ class _TextFieldLearnState extends State<TextFieldLearn> {
           border: OutlineInputBorder(),
         ),
       ),
+    );
+  }
+
+  AnimatedContainer _animatedConteiner(int? currentLength) {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 100),
+      key: UniqueKey(),
+      height: 10,
+      width: 10.0 * (currentLength ?? 0),
+      color: Colors.amber,
     );
   }
 }
