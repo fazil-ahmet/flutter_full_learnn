@@ -23,6 +23,7 @@ import 'package:flutter_full_learnn/101/stateless_learn.dart';
 import 'package:flutter_full_learnn/101/text_field_learn.dart';
 import 'package:flutter_full_learnn/101/text_learn_view.dart';
 import 'package:flutter_full_learnn/101/icon_learn.dart';
+import 'package:flutter_full_learnn/202/tab_learn.dart';
 import 'package:flutter_full_learnn/demos/color_demos_view.dart';
 import 'package:flutter_full_learnn/demos/color_life_cycle_view.dart';
 import 'package:flutter_full_learnn/demos/my_collection_demos.dart';
@@ -43,6 +44,20 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
+        //BUrada otamatik olrak bu şekilde oluşturur.
+        tabBarTheme: TabBarThemeData(
+          indicatorColor: Colors.deepOrangeAccent,
+          //text color
+          labelColor: Colors.cyanAccent,
+          //select olmayını white yapmak
+          unselectedLabelColor: Colors.white,
+          indicatorSize: TabBarIndicatorSize.label,
+        ),
+
+        bottomAppBarTheme: BottomAppBarThemeData(
+          //FloatingActionButton cente iöin ara yere açar;
+          shape: CircularNotchedRectangle(),
+        ),
         progressIndicatorTheme: ProgressIndicatorThemeData(color: Colors.white),
         listTileTheme: ListTileThemeData(contentPadding: EdgeInsets.zero),
         cardColor: ColorsItems().Porsche,
@@ -53,7 +68,7 @@ class MyApp extends StatelessWidget {
           systemOverlayStyle: SystemUiOverlayStyle.light,
         ),
       ),
-      home: NavigationLearn(),
+      home: TabLearn(),
     );
   }
 }
